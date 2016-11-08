@@ -13,18 +13,18 @@ gem install linx_microvix
 Agora insira as configurações básicas para você poder utilizar os recursos da API:
 
 ```ruby
-require 'millennium'
+require 'linx_microvix'
 
-Millennium.configure do |config|
+LinxMicrovix.configure do |config|
   config.user = <%= ENV['LINX_MICROVIX_USER'] %>
   config.pass = <%= ENV['LINX_MICROVIX_PASS'] %>
 end
 ```
 
-### Buscando uma compra faturada
+### Buscando os clientes que efetuaram transações em um período específico
 
 ```ruby
-Millennium::PedidoVenda.new('ClientesFornec', {
+LinxMicrovix::Request.new('ClientesFornec', {
   cnpjEmp: '00000000000000',
   data_inicial: '2016-11-01',
   data_fim: '2016-11-07'
